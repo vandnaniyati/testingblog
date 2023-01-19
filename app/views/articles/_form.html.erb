@@ -1,25 +1,25 @@
-<div class="d-flex align-items-center justify-content-center">
-  
 
 <% if @article.errors.any? %>
- <h1>The following errors prevented the article from being saved </h1>
- <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
- </ul>
+ <h6><%= pluralize(@article.errors.count, "error")%> prevented the article from being saved </h6>
+ <div style="color:red;">
+   <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+   </ul>
+  </div>
 <% end %>
 
 <%= form_with(model: @article, local: true ) do |form| %>
 
 <div class="form-group mb-2">
-  <%= form.label :title, style:"display:block"  %></br>
-  <%= form.text_field :title, class:"form-control form-control-lg" %>
+  <%= form.label :title, style:"display:block"  %>
+  <%= form.text_field :title, class:"form-control form-control-sm"%>
 </div>
 
 <div class="form-group mb-2">
-  <%= form.label :body, style:"display:block" %></br>
-  <%= form.text_area :body, class:"form-control form-control-lg" %>
+  <%= form.label :body, style:"display:block" %>
+  <%= form.text_area :body, class:"form-control form-control-sm"%>
 </div>
 
 <div>
