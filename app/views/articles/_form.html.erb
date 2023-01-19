@@ -1,6 +1,6 @@
 
 <% if @article.errors.any? %>
- <h6><%= pluralize(@article.errors.count, "error")%> prevented the article from being saved </h6>
+ <div style="color:red"><h6><%= pluralize(@article.errors.count, "error")%> prevented the article from being saved </h6></div>
  <div style="color:red;">
    <ul>
       <% @article.errors.full_messages.each do |msg| %>
