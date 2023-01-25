@@ -4,5 +4,9 @@ Rails.application.routes.draw do
  get 'home', to: 'pages#home'
  get 'about', to: 'pages#about'
  
- resources :articles #only: [:show]
+ resources :articles do #only: [:show]
+  member do 
+    get :like
+  end
+ end
 end

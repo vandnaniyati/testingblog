@@ -4,6 +4,7 @@
       <div class="card-body">
         <p><strong>title: </strong><%= @article.title %></p>
         <p><strong>Body: </strong><%= @article.body %></p>
+        <p><strong><%= like_toggle(@article) %></strong><%= @article.likes.count %></p>
       </div>
     </div>
     <div class= "mt-2">

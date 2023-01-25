@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :like]
   def index
     @articles = Article.all
   end
@@ -28,6 +28,20 @@ class ArticlesController < ApplicationController
       redirect_to articles_path, notice: "article update succesfully"
     else
       render :edit
+    end
+  end
+
+  def like
+    if @article.is_liked_by_user?(current_user.id)
+      @article.likes.find_by(user_id: current_user.id).delete
+      message = "Disliked successfully."
+    else
+      @article.likes.create(user_id: current_user.id)
+      message = "Liked successfully."
+    end
+
+    respond_to do |format|
+      format.html { redirect_to article_url(@article), notice: message }
     end
   end
 
