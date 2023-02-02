@@ -11,9 +11,7 @@
       <%= link_to "edit", edit_article_path(@article), class:"btn btn-warning" %>
       <%= link_to "BackToArticle", articles_path, class:"btn btn-outline-primary"%>
 
-      <%= link_to "delete", article_path(@article), data:{
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"}, class:"btn btn-danger" %>
+      <%= button_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
   </div>
 </div>
