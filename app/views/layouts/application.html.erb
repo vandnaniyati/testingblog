@@ -14,13 +14,9 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
     <%= render 'layouts/flash' %>
     <%= render 'layouts/navbar' %>
-    <div class="container-sm">
-      <div class="row">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
   </body>
 </html>
